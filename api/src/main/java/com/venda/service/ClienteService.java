@@ -18,38 +18,36 @@ public class ClienteService {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
-	
+
 	private Optional<Cliente> cliente;
 
 	public List<Cliente> findAll() {
 		return clienteRepository.findAll();
 	}
-	
+
 	public Cliente save(Cliente cliente) {
 		cliente.setId(null);
 		return clienteRepository.save(cliente);	
 	}
-	
+
 	public Optional<Cliente> findById(Long id) {
-		
+
 		cliente = clienteRepository.findById(id);
-		
+
 		if(cliente.isEmpty()) {
 			throw new ClienteException("Cliente não encontrado", new  ResponseStatusException(HttpStatus.NOT_FOUND));
 		}
-		
 		return cliente;
-
 	}
 
 	public void delete(Long id) {
 		clienteRepository.deleteById(id);
 	}
-	
+
 	public void update(Cliente cliente) {
 		var upProduto = findById(cliente.getId()).get();
 		BeanUtils.copyProperties(cliente, upProduto);
 		clienteRepository.save(upProduto);
 	}
-	
+
 }
