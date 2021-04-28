@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Cliente {
@@ -14,12 +16,18 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty(message = "Nome não pode estar vazio")
 	private String nome;
 	
+	@NotEmpty(message = "Cpf não pode estar vazio")
 	private String cpf;
 	
 	private LocalDate data;
 	
+	@PrePersist
+	public void prePersist() {
+		setData(LocalDate.now());
+	}
 	
 	public Long getId() {
 		return id;
