@@ -19,4 +19,13 @@ export class ClienteService {
   getCliente(): Observable<Cliente[]>{
     return this.http.get<Cliente[]>('http://localhost:8080/clientes');
   }
+  getClienteById(id: number): Observable<Cliente>{
+    return this.http.get<Cliente>(`http://localhost:8080/clientes/${id}`);
+  }
+  atualizar(cliente: Cliente): Observable<any>{
+    return this.http.put<Cliente>(`http://localhost:8080/clientes/${cliente.id}`, cliente);
+  }
+  deletar(cliente: Cliente): Observable<any>{
+    return this.http.delete<any>(`http://localhost:8080/clientes/${cliente.id}`);
+  }
 }
