@@ -5,7 +5,6 @@ import { ClientesFormComponent } from './cliente-form/clientes-form.component';
 import { ClienteListarComponent } from './cliente-listar/cliente-listar.component';
 import { ClientesRoutingModule } from './cliente-routing.module';
 
-
 @NgModule({
   declarations: [
     ClientesFormComponent,

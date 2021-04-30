@@ -22,3 +22,14 @@ CREATE TABLE servico(
 );
 --preconditions onFail:MARK_RAN onError:HALT
 --precondition-sql-check expectedResult:0 select count(*) from information_schema.tables where table_schema = 'public' and table_name = 'servico'
+
+--changeset viniciusaugusto:3
+CREATE TABLE produto(
+	id serial not null,
+	descricao text,
+	preco real,
+	data date default date(now()),
+	primary key(id)
+);
+--preconditions onFail:MARK_RAN onError:HALT
+--precondition-sql-check expectedResult:0 select count(*) from information_schema.tables where table_schema = 'public' and table_name = 'produto'

@@ -1,4 +1,4 @@
-<h1 class="mt-4">Cliente</h1>
+<h1 class="mt-4">Produto</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">Consulta</li>
 </ol>
@@ -33,25 +33,25 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nome</th>
-                        <th>Cpf</th>
+                        <th>Descricao</th>
+                        <th>Preço</th>
                         <th>Data do Cadastro</th>
                     </tr>
                 </thead>
                 <tBody>
-                    <tr *ngFor="let cliente of cliente">
-                        <td>{{ cliente.id }}</td>
-                        <td>{{ cliente.nome }}</td>
-                        <td>{{ cliente.cpf }}</td>
-                        <td>{{ cliente.data }}</td>
+                    <tr *ngFor="let produto of produto">
+                        <td>{{ produto.id }}</td>
+                        <td>{{ produto.descricao }}</td>
+                        <td>{{ produto.preco }}</td>
+                        <td>{{ produto.data }}</td>
                         <td>
 
-                            <button class="btn btn-primary" routerLink="/cliente-form/{{ cliente.id }}">
+                            <button class="btn btn-primary" routerLink="/produto-form/{{ produto.id }}">
                                 <i class="fa fa-edit"></i>
                             </button>
 
                             <button class="btn btn-danger" data-toggle="modal" data-target="#modalDelecao"
-                                (click)="preparaDelete(cliente)">
+                                (click)="preparaDelete(produto)">
                                 <i class="fa fa-trash"></i>
                             </button>
 
@@ -65,15 +65,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4>Deseja apagar cliente ?</h4>
+                    <h4>Deseja apagar produto ?</h4>
                 </div>
 
-                <div class="modal-body" *ngIf="clienteSelecionado">
-                    Confirma o delete do cliente {{ clienteSelecionado.nome }} ?
+                <div class="modal-body" *ngIf="produtoSelecionado">
+                    Confirma o delete do produto {{ produtoSelecionado.descricao }} ?
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-success" (click)="deletaCliente()" data-dismiss="modal">Confirma</button>
+                    <button class="btn btn-success" (click)="deletaProduto()" data-dismiss="modal">Confirma</button>
                     <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 </div>
 

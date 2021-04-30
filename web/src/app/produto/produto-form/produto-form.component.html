@@ -1,0 +1,63 @@
+<h1 class="mt-4">Produto</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">{{ produto.id ? 'Edição' : 'Cadastro' }}</li>
+</ol>
+<div class="Container">
+
+  <form #produtoForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="success == true">
+          Produto salvo/atualizado
+        </div>
+        <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+          {{ erro }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group" *ngIf="produto.id">
+          <label>ID:</label>
+          <input type="text" class="form-control" disabled="true" [ngModel]="produto.id" name="id">
+        </div>
+
+        <div class="form-group">
+          <label>Descrição:</label>
+          <input type="text" class="form-control" [(ngModel)]="produto.descricao" name="descricao">
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" *ngIf="produto.data">
+          <label>Data Cadastro</label>
+          <input type="text" class="form-control" disabled="true" [ngModel]="produto.data" name="data">
+        </div>
+
+        <div class="form-group">
+          <label>Preço : </label>
+          <input type="text" class="form-control" [(ngModel)]="produto.preco" name="preco" maxlength=14>
+        </div>
+
+      </div>
+    </div>
+   <div class="row">
+      <div class="col">
+      
+      <button class="btn btn-danger" (click)="voltarParaListagem()" *ngIf="produto.id">
+        <i class="fa fa-bars"></i> Voltar
+      </button>
+
+      <button type="submit" class="btn btn-success" *ngIf="!produto.id">
+        <i class="fa fa-save"></i> Salvar
+      </button>
+
+      <button type="submit" class="btn btn-primary" *ngIf="produto.id">
+        <i class="fa fa-sync-alt"></i> Atualizar
+      </button>
+
+      </div>
+    </div>
+  </form>
+</div>

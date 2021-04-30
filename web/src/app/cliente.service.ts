@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cliente } from './cliente/cliente';
-import { ClientesFormComponent } from './cliente/cliente-form/clientes-form.component';
 
 @Injectable({
   providedIn: 'root'

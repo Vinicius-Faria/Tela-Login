@@ -43,20 +43,20 @@
       </div>
     </div>
    <div class="row">
-    <div class="col-md-2">
+      <div class="col">
+      
       <button class="btn btn-danger" (click)="voltarParaListagem()" *ngIf="cliente.id">
         <i class="fa fa-bars"></i> Voltar
       </button>
-    </div>
-      <div class="col-md-2">
-        <button type="submit" class="btn btn-success" *ngIf="!cliente.id">
-          <i class="fa fa-save"></i> Salvar
-        </button>
-      </div>
-      <div class="col-md-2">
-        <button type="submit" class="btn btn-primary" *ngIf="cliente.id">
-          <i class="fa fa-sync-alt"></i> Atualizar
-        </button>
+
+      <button type="submit" class="btn btn-success" *ngIf="!cliente.id">
+        <i class="fa fa-save"></i> Salvar
+      </button>
+
+      <button type="submit" class="btn btn-primary" *ngIf="cliente.id">
+        <i class="fa fa-sync-alt"></i> Atualizar
+      </button>
+
       </div>
     </div>
   </form>
