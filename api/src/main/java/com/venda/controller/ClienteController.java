@@ -43,7 +43,6 @@ public class ClienteController {
 		cliente = clienteService.save(cliente);		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 							.path("/{id}").buildAndExpand(cliente.getId()).toUri();
-		
 		return ResponseEntity.created(uri).build();
 		
 	}

@@ -43,9 +43,7 @@ public class ProdutoController {
 		produto = produtoService.save(produto);		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 							.path("/{id}").buildAndExpand(produto.getId()).toUri();
-		
 		return ResponseEntity.created(uri).build();
-		
 	}
 	
 	@GetMapping("/{id}")
